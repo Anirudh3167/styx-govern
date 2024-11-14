@@ -17,9 +17,9 @@ export const authOptions = { // Default JWT tokens
         },
         async authorize(credentials, req) {
           console.log("Authorize Function (/api/auth/[...nextauth]/route.ts): ");
-          const { email, password } = credentials || {};
+          const { email, password } = credentials || {email:"",password:''};
         //   let user = await GetUser({ email, password });
-        let user = {username:"John Doe", email:"oB3H2@example.com", _id:"123"}
+        const user = {username:"John Doe", email:"oB3H2@example.com", _id:"123"}
           // console.log("From Authorize:", user);
           return user ? {name:user.username,email:user.email,id:user._id} : null;
         }
